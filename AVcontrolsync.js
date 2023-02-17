@@ -3,7 +3,6 @@ var GLOBAL_VOLUME;
 let mediaElements = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Loaded");
 
     mediaElements = Array.from(document.getElementsByTagName("audio"));
     mediaElements.push(...Array.from(document.getElementsByTagName("video")));
@@ -11,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return el.controls;
     });
 
-    console.log(`Watching: ${mediaElements.length} media elements`);
+    console.log(`AVControlSync: Watching ${mediaElements.length} media elements`);
     mediaElements.forEach((el) => {
         el.addEventListener("volumechange", (e) => {
             updateGlobalVolume(e.target.volume);
